@@ -1,6 +1,38 @@
 /* Santa Fe - Dave Hawkins
    Desert pool vibes with retro southwestern aesthetic */
 
+/* Jump through time styles */
+.jump-text {
+    position: absolute;
+    top: -5px;
+    right: -80px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 14px;
+    color: #1eff00;
+    transform: rotate(-8deg);
+    text-shadow: 1px 1px 2px #000000;
+    animation: float-jump 3s ease-in-out infinite;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    filter: drop-shadow(0 0 1px rgba(255,255,255,0.5));
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.emoji-arrow {
+    position: absolute;
+    top: 15px;
+    right: -50px;
+    font-size: 18px;
+    animation: float-jump 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes float-jump {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+}
+
 /* Base Styles */
 * {
     margin: 0;
@@ -61,11 +93,12 @@ body {
 }
 
 .dh-logo {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    width: 100px;
-    z-index: 10;
+    position: relative;
+    display: block;
+    width: 80px;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+    z-index: 1;
 }
 
 .dh-logo img {

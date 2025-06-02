@@ -74,7 +74,11 @@
     <div class="container">
         <header class="site-header">
             <div class="dh-logo parallax-shallow">
-                <img src="Logo_White-removebg-preview.png" alt="Dave Hawkins Logo">
+                <a href="#" id="randomSongLink" style="position: relative; display: inline-block;">
+                    <img src="Logo_White-removebg-preview.png" alt="Dave Hawkins Logo">
+                    <div class="jump-text">jump through time</div>
+                    <div class="emoji-arrow">↙️</div>
+                </a>
             </div>
             
             <div class="logo parallax">
@@ -276,5 +280,18 @@
             &copy; <script>document.write(new Date().getFullYear());</script> Dave Hawkins | <a href="https://iamdavehawkins.com" style="color: #999999; text-decoration: none;">iamdavehawkins.com</a>
         </footer>
     </div>
+    <script>
+        document.getElementById('randomSongLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            const songPages = [
+                'https://bones.iamdavehawkins.com/',
+                'https://strawberrysummer.iamdavehawkins.com/',
+                'https://woolandfur.iamdavehawkins.com/',
+                'https://santafe.iamdavehawkins.com/'
+            ];
+            const randomPage = songPages[Math.floor(Math.random() * songPages.length)];
+            window.location.href = randomPage;
+        });
+    </script>
 </body>
 </html>
