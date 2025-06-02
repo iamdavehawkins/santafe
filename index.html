@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Santa Fe - Dave Hawkins</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+        // Parallax effect for dreamy motion
+        document.addEventListener('mousemove', function(e) {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            const parallaxDeep = document.querySelectorAll('.parallax-deep');
+            const parallaxShallow = document.querySelectorAll('.parallax-shallow');
+            
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            parallaxElements.forEach(element => {
+                const offsetX = (x - 0.5) * 15;
+                const offsetY = (y - 0.5) * 15;
+                element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+            
+            parallaxDeep.forEach(element => {
+                const offsetX = (x - 0.5) * 25;
+                const offsetY = (y - 0.5) * 25;
+                element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+            
+            parallaxShallow.forEach(element => {
+                const offsetX = (x - 0.5) * 8;
+                const offsetY = (y - 0.5) * 8;
+                element.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+            });
+        });
+
+        // Floating text animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingTexts = document.querySelectorAll('.floating-text');
+            
+            floatingTexts.forEach(text => {
+                const randomX = Math.random() * 30 - 15;
+                const randomY = Math.random() * 30 - 15;
+                const randomDuration = 5 + Math.random() * 10;
+                
+                text.style.animation = `float ${randomDuration}s ease-in-out infinite alternate`;
+                text.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            });
+
+            // Initialize scroll reveal effect
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Check initial state
+        });
+
+        // Reveal elements on scroll
+        function revealOnScroll() {
+            const elements = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 50) {
+                    element.classList.add('revealed');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="pool-overlay"></div>
+    <div class="grain-overlay"></div>
+    <div class="container">
+        <header class="site-header">
+            <div class="dh-logo parallax-shallow">
+                <img src="Logo_White-removebg-preview.png" alt="Dave Hawkins Logo">
+            </div>
+            
+            <div class="logo parallax">
+                <img src="Me Album Cover 2.jpg" alt="Santa Fe - Dave Hawkins" class="album-art">
+            </div>
+            <h1 class="title">SANTA FE</h1>
+            
+            <div class="lyric-fragment fragment-center">
+                <p class="floating-text accent-color-2">desert air & pool reflections</p>
+            </div>
+        </header>
+
+        <div class="sun-element" style="top: 20%; right: 15%;"></div>
+
+        <section class="intro reveal">
+            <div class="gif-container parallax-deep">
+                <img src="mountain.gif" alt="Santa Fe Mountains" class="main-gif">
+            </div>
+            
+            <div class="lyric-fragment fragment-right">
+                <p class="floating-text accent-color-1">wrote you a letter from Santa Fe</p>
+            </div>
+        </section>
+
+        <section class="streaming-links reveal">
+            <h2 class="section-title">Listen Now</h2>
+            <div class="links-container">
+                <a href="https://open.spotify.com/track/4EyzQwjShHM0mEYZ9opnCq?context=spotify:playlist:57yZolIWjYnx2j8qVNhbcm&si=84c08696bc88473b" class="link-item" target="_blank">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                        <path fill="currentColor" d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 30.6 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/>
+                    </svg>
+                    SPOTIFY
+                </a>
+                <a href="https://music.apple.com/us/album/santa-fe/1747420462?i=1747420463" class="link-item" target="_blank">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                    </svg>
+                    APPLE MUSIC
+                </a>
+                <a href="https://music.youtube.com/watch?v=a22q6-_HLE4&si=zbbBD2TMLjyBsGmd" class="link-item" target="_blank">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                        <path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+                    </svg>
+                    YOUTUBE MUSIC
+                </a>
+                <a href="https://iamdavehawkins.bandcamp.com/track/santa-fe" class="link-item" target="_blank">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/>
+                    </svg>
+                    BANDCAMP
+                </a>
+            </div>
+        </section>
+
+        <div class="wavy-line"></div>
+
+        <section class="lyrics-part-1 reveal">
+            <div class="lyrics-container">
+                <div class="lyric-line floating-text">Wrote you a letter from Santa fe</div>
+                <div class="lyric-line floating-text">Wont get to you until saturday</div>
+                <div class="lyric-line floating-text">Turns out I had a lot of stuff to say</div>
+                <div class="lyric-line floating-text">To you</div>
+                <div class="lyric-line floating-text">About you</div>
+            </div>
+        </section>
+
+        <section class="image-break reveal">
+            <div class="image-container parallax">
+                <img src="pool_Water.gif" alt="Pool Water" class="visual-image">
+                <div class="lyric-fragment fragment-left">
+                    <p class="floating-text accent-color-2">might go swimmin at the rec center</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="desert-quote reveal">
+            <p>slow afternoons</p>
+        </div>
+        
+        <section class="lyrics-part-2 reveal">
+            <div class="lyrics-container">
+                <div class="lyric-line floating-text">I got some time to kill until then</div>
+                <div class="lyric-line floating-text">Might go swimmin at the rec center</div>
+                <div class="lyric-line floating-text">My head</div>
+                <div class="lyric-line floating-text">Underwater</div>
+                <div class="lyric-line floating-text">Cool it down</div>
+            </div>
+        </section>
+
+        <div class="mountain-element"></div>
+
+        <section class="chorus-section reveal">
+            <div class="lyrics-container">
+                <div class="lyric-chorus floating-text accent-color-3">
+                    I just need to clear my mind for a minute<br>
+                    I just put my pen to the paper and sent it
+                </div>
+            </div>
+        </section>
+
+        <section class="image-break reveal">
+            <div class="image-container parallax">
+                <img src="street.gif" alt="Santa Fe Street" class="visual-image">
+                <div class="lyric-fragment fragment-right">
+                    <p class="floating-text accent-color-4">horizon melts into sky</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="desert-quote reveal">
+            <p>sun-warmed stillness</p>
+        </div>
+
+        <section class="lyrics-part-3 reveal">
+            <div class="lyrics-container">
+                <div class="lyric-line floating-text">My favorite artist has a gallery</div>
+                <div class="lyric-line floating-text">On the street with five new airbnbs</div>
+                <div class="lyric-line floating-text">But not one</div>
+                <div class="lyric-line floating-text">Has hung</div>
+                <div class="lyric-line floating-text">A piece</div>
+                <br>
+                <div class="lyric-line floating-text">I watch the people squeezed on tiny sidewalks</div>
+                <div class="lyric-line floating-text">And we're all breathing one asshole's exhaust</div>
+                <div class="lyric-line floating-text">Aint it great</div>
+                <div class="lyric-line floating-text">All of us</div>
+                <div class="lyric-line floating-text">Share the space</div>
+            </div>
+        </section>
+
+        <div class="desert-divider"></div>
+
+        <section class="chorus-section reveal">
+            <div class="lyrics-container">
+                <div class="lyric-chorus floating-text accent-color-3">
+                    I just need to clear my mind for a minute<br>
+                    I just put my pen to the paper and sent it
+                </div>
+            </div>
+        </section>
+
+        <div class="desert-quote reveal">
+            <p>quiet desert pulse</p>
+        </div>
+
+        <section class="lyrics-part-4 reveal">
+            <div class="lyrics-container">
+                <div class="lyric-line floating-text">I never knew the desert had snowy mountains</div>
+                <div class="lyric-line floating-text">The lady pouring can't stop talking about em</div>
+                <div class="lyric-line floating-text">She skis</div>
+                <div class="lyric-line floating-text">But her knees</div>
+                <div class="lyric-line floating-text">Aren't great</div>
+                <br>
+                <div class="lyric-line floating-text">The mall is empty, but it feels full</div>
+                <div class="lyric-line floating-text">The kids are alright, but they're miserable</div>
+                <div class="lyric-line floating-text">And I walk</div>
+                <div class="lyric-line floating-text">And I see</div>
+                <div class="lyric-line floating-text">They dont talk</div>
+            </div>
+        </section>
+
+        <section class="chorus-section reveal">
+            <div class="lyrics-container">
+                <div class="lyric-chorus floating-text accent-color-3">
+                    I just need to clear my mind for a minute<br>
+                    I just put my pen to the paper and sent it
+                </div>
+            </div>
+        </section>
+
+        <div class="desert-quote reveal">
+            <p>floating in color</p>
+        </div>
+
+        <div class="desert-quote reveal">
+            <p>Santa Fe humming</p>
+        </div>
+
+        <section class="newsletter reveal">
+            <div class="newsletter-form">
+                <form
+                  action="https://buttondown.com/api/emails/embed-subscribe/iamdavehawkins"
+                  method="post"
+                  target="popupwindow"
+                  onsubmit="window.open('https://newsletter.iamdavehawkins.com', 'popupwindow')"
+                  class="embeddable-buttondown-form"
+                >
+                  <h3 class="section-title">Subscribe to the Newsletter</h3>
+                  <div class="form-group">
+                    <input type="email" name="email" id="bd-email" placeholder="your@email.com" required />
+                    <input type="hidden" value="1" name="embed" />
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                  </div>
+                  <small class="newsletter-small">Get updates on new music, shows, and more.</small>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            &copy; <script>document.write(new Date().getFullYear());</script> Dave Hawkins | <a href="https://iamdavehawkins.com" style="color: #999999; text-decoration: none;">iamdavehawkins.com</a>
+        </footer>
+    </div>
+</body>
+</html>
